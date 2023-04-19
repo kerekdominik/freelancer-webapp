@@ -1,6 +1,6 @@
-package bme.webapp.freelancer.model.user;
+package bme.webapp.freelancer.entity.user;
 
-import bme.webapp.freelancer.model.Job;
+import bme.webapp.freelancer.entity.Job;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "employees")
-public class Employee extends User{
+public class Employee extends User {
     @ElementCollection
     private List<String> skills;
     @Column

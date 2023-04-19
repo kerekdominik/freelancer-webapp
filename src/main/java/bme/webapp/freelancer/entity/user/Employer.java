@@ -1,4 +1,4 @@
-package bme.webapp.freelancer.model.user;
+package bme.webapp.freelancer.entity.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,5 +12,5 @@ public class Employer extends User{
     @Column
     private String description;
     //@OneToMany(mappedBy = "employer", cascade = CascadeType.ALL)
-    //private List<Job> cratedJobs;
+    //private List<Job> createdJobs;
 }

@@ -1,4 +1,4 @@
-package bme.webapp.freelancer.model;
+package bme.webapp.freelancer.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
