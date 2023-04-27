@@ -2,13 +2,16 @@ package bme.webapp.freelancer.entity.user;
 
 import bme.webapp.freelancer.entity.Job;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
 @Entity
+@Getter
+@Setter
 @Table(name = "employees")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee extends User {
     @ElementCollection
     private List<String> skills;
@@ -16,11 +19,7 @@ public class Employee extends User {
     private Integer experienceLevel;
     @Column
     private Double hourlyRate;
-    @ManyToMany
-    @JoinTable(
-            name = "employee_applied_jobs",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "job_id")
-    )
+
+    @ManyToMany(mappedBy = "appliedEmployees")
     private List<Job> appliedJobs;
 }

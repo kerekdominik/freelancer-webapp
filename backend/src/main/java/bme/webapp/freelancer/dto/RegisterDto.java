@@ -1,6 +1,6 @@
 package bme.webapp.freelancer.dto;
 
-import bme.webapp.freelancer.entity.Roles;
+import bme.webapp.freelancer.entity.user.Roles;
 import lombok.Data;
 
 @Data

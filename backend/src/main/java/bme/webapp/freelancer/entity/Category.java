@@ -1,24 +1,22 @@
 package bme.webapp.freelancer.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@AllArgsConstructor
+@Table(name = "categories")
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@AllArgsConstructor
 public class Category {
     @Id
+    @Column
     @GeneratedValue
-    @EqualsAndHashCode.Include
     private Integer id;
+    @Column
     private String name;
 
     @OneToMany(mappedBy = "category")

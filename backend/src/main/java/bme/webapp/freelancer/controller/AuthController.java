@@ -2,7 +2,7 @@ package bme.webapp.freelancer.controller;
 
 import bme.webapp.freelancer.dto.LoginDto;
 import bme.webapp.freelancer.dto.RegisterDto;
-import bme.webapp.freelancer.entity.Roles;
+import bme.webapp.freelancer.entity.user.Roles;
 import bme.webapp.freelancer.entity.user.Employee;
 import bme.webapp.freelancer.entity.user.Employer;
 import bme.webapp.freelancer.repository.user.UserRepository;
