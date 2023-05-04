@@ -1,9 +1,11 @@
 package bme.webapp.freelancer.entity;
 
-import bme.webapp.freelancer.entity.user.Employee;
-import bme.webapp.freelancer.entity.user.Employer;
+import bme.webapp.freelancer.entity.user.User;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -33,9 +35,9 @@ public class Job {
     @JoinTable(name = "employee_job",
             joinColumns = @JoinColumn(name = "job_id"),
             inverseJoinColumns = @JoinColumn(name = "employee_id"))
-    private List<Employee> appliedEmployees;
+    private List<User> appliedEmployees;
 
     @ManyToOne
     @JoinColumn(name = "employer_id")
-    private Employer employer;
+    private User employer;
 }
