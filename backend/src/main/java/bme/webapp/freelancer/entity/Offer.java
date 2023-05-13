@@ -1,6 +1,6 @@
 package bme.webapp.freelancer.entity;
 
-import bme.webapp.freelancer.entity.user.Employee;
+import bme.webapp.freelancer.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,10 +26,12 @@ public class Offer {
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    private Employee employeeId;
+    private User employeeId;
 
     @Column
     private Double hourlyRate;
+    @Column
+    private Integer estimatedTime;
     @Column
     private String description;
     @Column

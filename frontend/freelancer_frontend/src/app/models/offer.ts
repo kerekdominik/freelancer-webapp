@@ -4,6 +4,7 @@ export interface Offer {
     employeeId: number;
     jobId: number;
     hourlyRate: number;
-    hoursPerWeek: number;
+    estimatedTime: number;
+    description: string;
     status: boolean;
 }
