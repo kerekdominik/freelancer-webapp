@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class RegistrationComponent {
   registerForm: FormGroup;
   errorMessage: string | null = null;
+  passwordMismatch: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {
     this.registerForm = this.formBuilder.group({
@@ -23,6 +24,17 @@ export class RegistrationComponent {
       hourlyPrice: [''],
       introduction: ['']
     });
+  }
+
+  comparePasswords(): void {
+    const password = this.registerForm.get('password')?.value;
+    const passwordAgain = this.registerForm.get('passwordAgain')?.value;
+
+    if (password !== passwordAgain) {
+      this.passwordMismatch = true;
+    } else {
+      this.passwordMismatch = false;
+    }
   }
 
   onRoleChange(event: Event): void {
@@ -46,7 +58,7 @@ export class RegistrationComponent {
 
   onSubmit(): void {
     const url = 'http://localhost:8080/api/auth/register';
-    if (this.registerForm.valid) {
+    if (this.registerForm.valid && !this.passwordMismatch) {
       this.http.post<any>(url, this.registerForm.value).subscribe({
         next: data => {
           
