@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #28a745; /* Ez a Bootstrap success zöld színe */
+    background-color: #28a745;
   }
   
   .login-form {
@@ -14,7 +14,7 @@
   }
 
   .error-message {
-    color: red;
+    color: darkred;
     margin-top: 10px;
   }
   

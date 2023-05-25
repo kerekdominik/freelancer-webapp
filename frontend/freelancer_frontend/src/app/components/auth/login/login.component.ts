@@ -29,13 +29,10 @@ export class LoginComponent implements OnInit {
     const url = 'http://localhost:8080/api/auth/login';
     this.http.post<any>(url, this.loginForm.value).subscribe({
       next: data => {
-        // A válaszul kapott token mentése
         localStorage.setItem('jwtToken', data.token);
-        // Átirányítás a kezdőlapra
-        this.router.navigate(['/home']);
+        this.router.navigateByUrl('/home').catch(err => console.log(err));
       },
       error: err => {
-        // Hibakezelés
         this.errorMessage = 'Invalid username or password!';
       }
     });
@@ -43,6 +40,6 @@ export class LoginComponent implements OnInit {
 
 
   navigateToRegister() {
-    this.router.navigateByUrl('/register');
+    this.router.navigateByUrl('/register').catch(err => console.log(err));
   }
 }

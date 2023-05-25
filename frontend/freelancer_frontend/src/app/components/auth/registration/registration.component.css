@@ -1,0 +1,21 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #28a745;
+  }
+  
+  .login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+
+  .error-message {
+    color: darkred;
+    margin-top: 10px;
+  }
+  
+  
