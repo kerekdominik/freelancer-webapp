@@ -43,7 +43,7 @@ public class User implements UserDetails {
     @Column
     private Integer experienceLevel;
     @Column
-    private Double hourlyRate;
+    private Double hourlyPrice;
     @ManyToMany(mappedBy = "appliedEmployees")
     private List<Job> appliedJobs;
 

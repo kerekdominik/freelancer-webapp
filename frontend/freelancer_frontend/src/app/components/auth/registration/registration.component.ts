@@ -19,7 +19,7 @@ export class RegistrationComponent {
       passwordAgain: ['', Validators.required],
       role: ['', Validators.required],
       skills: [''],
-      experience: [''],
+      experienceLevel: [''],
       hourlyPrice: [''],
       introduction: ['']
     });
@@ -29,17 +29,17 @@ export class RegistrationComponent {
     const role = (event.target as HTMLSelectElement).value;
     if (role === 'EMPLOYER') {
       this.registerForm.controls['skills'].clearValidators();
-      this.registerForm.controls['experience'].clearValidators();
+      this.registerForm.controls['experienceLevel'].clearValidators();
       this.registerForm.controls['hourlyPrice'].clearValidators();
       this.registerForm.controls['introduction'].setValidators([Validators.required]);
     } else {
       this.registerForm.controls['skills'].setValidators([Validators.required]);
-      this.registerForm.controls['experience'].setValidators([Validators.required]);
+      this.registerForm.controls['experienceLevel'].setValidators([Validators.required]);
       this.registerForm.controls['hourlyPrice'].setValidators([Validators.required]);
       this.registerForm.controls['introduction'].clearValidators();
     }
     this.registerForm.controls['skills'].updateValueAndValidity();
-    this.registerForm.controls['experience'].updateValueAndValidity();
+    this.registerForm.controls['experienceLevel'].updateValueAndValidity();
     this.registerForm.controls['hourlyPrice'].updateValueAndValidity();
     this.registerForm.controls['introduction'].updateValueAndValidity();
   }

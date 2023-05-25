@@ -12,5 +12,9 @@ import lombok.NoArgsConstructor;
 public class RegisterRequest {
     private String username;
     private String password;
-    // TODO: add experienceLevel
+    private String role;
+    private String skills;
+    private Integer experienceLevel;
+    private String introduction;
+    private Double hourlyPrice;
 }

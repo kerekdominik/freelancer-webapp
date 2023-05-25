@@ -5,19 +5,19 @@
     
       <form class="login-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Felhasználónév</label>
           <input id="username" type="text" formControlName="username" class="form-control">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Jelszó</label>
           <input id="password" type="password" formControlName="password" class="form-control">
         </div>
         <div class="form-group">
-          <label for="passwordAgain">Password Again</label>
+          <label for="passwordAgain">Jelszó újra</label>
           <input id="passwordAgain" type="password" formControlName="passwordAgain" class="form-control">
         </div>
         <div class="form-group">
-            <label for="role">Role</label>
+            <label for="role">Szerepkör</label>
             <select id="role" formControlName="role" class="form-control" (change)="onRoleChange($event)">
                 <option value="EMPLOYER">Munkáltató</option>
               <option value="EMPLOYEE">Munkavállaló</option>
@@ -25,26 +25,26 @@
           </div>
         
           <div class="form-group" *ngIf="registerForm.value.role === 'EMPLOYEE'">
-            <label for="skills">Skills</label>
+            <label for="skills">Képességek</label>
             <input id="skills" type="text" formControlName="skills" class="form-control">
           </div>
         
           <div class="form-group" *ngIf="registerForm.value.role === 'EMPLOYEE'">
-            <label for="experience">Experience Level</label>
-            <select id="experience" formControlName="experience" class="form-control">
-              <option value="senior">Senior</option>
-              <option value="medior">Medior</option>
-              <option value="junior">Junior</option>
+            <label for="experienceLevel">Tapasztalati szint</label>
+            <select id="experienceLevel" formControlName="experienceLevel" class="form-control">
+              <option value="3">Senior</option>
+              <option value="2">Medior</option>
+              <option value="1">Junior</option>
             </select>
           </div>
         
           <div class="form-group" *ngIf="registerForm.value.role === 'EMPLOYEE'">
-            <label for="hourlyPrice">Hourly Price</label>
+            <label for="hourlyPrice">Óradíj</label>
             <input id="hourlyPrice" type="number" formControlName="hourlyPrice" class="form-control">
           </div>
         
           <div class="form-group" *ngIf="registerForm.value.role === 'EMPLOYER'">
-            <label for="introduction">Introduction</label>
+            <label for="introduction">Bemutatkozás</label>
             <textarea id="introduction" formControlName="introduction" class="form-control"></textarea>
           </div>
         <br>
