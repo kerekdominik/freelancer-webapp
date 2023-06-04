@@ -1,6 +1,5 @@
-package bme.webapp.freelancer.entity.user;
+package bme.webapp.freelancer.entity;
 
-import bme.webapp.freelancer.entity.Job;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,6 +38,7 @@ public class User implements UserDetails {
 
     // Employee related fields
     @ElementCollection
+    @Column
     private List<String> skills;
     @Column
     private Integer experienceLevel;

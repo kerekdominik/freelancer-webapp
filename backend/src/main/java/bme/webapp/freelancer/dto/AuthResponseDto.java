@@ -1,4 +1,4 @@
-package bme.webapp.freelancer.auth;
+package bme.webapp.freelancer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthResponse {
+public class AuthResponseDto {
     private String token;
 }

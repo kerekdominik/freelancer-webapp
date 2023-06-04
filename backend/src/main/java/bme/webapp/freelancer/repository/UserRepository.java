@@ -1,6 +1,6 @@
-package bme.webapp.freelancer.repository.user;
+package bme.webapp.freelancer.repository;
 
-import bme.webapp.freelancer.entity.user.User;
+import bme.webapp.freelancer.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

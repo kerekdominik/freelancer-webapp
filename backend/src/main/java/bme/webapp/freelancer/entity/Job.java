@@ -1,6 +1,5 @@
 package bme.webapp.freelancer.entity;
 
-import bme.webapp.freelancer.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

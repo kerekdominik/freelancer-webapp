@@ -1,4 +1,4 @@
-package bme.webapp.freelancer.entity.user;
+package bme.webapp.freelancer.entity;
 
 public enum Role {
     EMPLOYEE,

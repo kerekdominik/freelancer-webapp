@@ -1,6 +1,6 @@
 package bme.webapp.freelancer.security.config;
 
-import bme.webapp.freelancer.repository.user.UserRepository;
+import bme.webapp.freelancer.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

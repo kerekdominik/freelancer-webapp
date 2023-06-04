@@ -1,8 +1,11 @@
-package bme.webapp.freelancer.auth;
+package bme.webapp.freelancer.service;
 
-import bme.webapp.freelancer.entity.user.Role;
-import bme.webapp.freelancer.entity.user.User;
-import bme.webapp.freelancer.repository.user.UserRepository;
+import bme.webapp.freelancer.dto.AuthResponseDto;
+import bme.webapp.freelancer.dto.LoginRequestDto;
+import bme.webapp.freelancer.dto.RegisterRequestDto;
+import bme.webapp.freelancer.entity.Role;
+import bme.webapp.freelancer.entity.User;
+import bme.webapp.freelancer.repository.UserRepository;
 import bme.webapp.freelancer.security.config.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,19 +23,19 @@ public class AuthService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthResponse register(RegisterRequest registerRequest) {
+    public AuthResponseDto register(RegisterRequestDto registerRequestDto) {
         User user = new User();
-        user.setUsername(registerRequest.getUsername());
-        user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-        user.setRole(Role.valueOf(registerRequest.getRole()));
+        user.setUsername(registerRequestDto.getUsername());
+        user.setPassword(passwordEncoder.encode(registerRequestDto.getPassword()));
+        user.setRole(Role.valueOf(registerRequestDto.getRole()));
         if (user.getRole() == Role.EMPLOYEE) {
-            user.setSkills(List.of(registerRequest.getSkills().split(",")));
-            user.setExperienceLevel(registerRequest.getExperienceLevel());
-            user.setHourlyPrice(Double.parseDouble(String.valueOf(registerRequest.getHourlyPrice())));
+            user.setSkills(List.of(registerRequestDto.getSkills().split(",")));
+            user.setExperienceLevel(registerRequestDto.getExperienceLevel());
+            user.setHourlyPrice(Double.parseDouble(String.valueOf(registerRequestDto.getHourlyPrice())));
 
             user.setIntroduction("-");
         } else {
-            user.setIntroduction(registerRequest.getIntroduction());
+            user.setIntroduction(registerRequestDto.getIntroduction());
 
             user.setSkills(List.of("-"));
             user.setExperienceLevel(-1);
@@ -42,22 +45,22 @@ public class AuthService {
         userRepository.save(user);
 
         var jwtToken = jwtService.generateToken(user);
-        return AuthResponse.builder()
+        return AuthResponseDto.builder()
                 .token(jwtToken)
                 .build();
     }
 
-    public AuthResponse login(LoginRequest loginRequest) {
+    public AuthResponseDto login(LoginRequestDto loginRequestDto) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                loginRequest.getUsername(),
-                loginRequest.getPassword()
+                loginRequestDto.getUsername(),
+                loginRequestDto.getPassword()
                 )
         );
-        User user = userRepository.findByUsername(loginRequest.getUsername())
+        User user = userRepository.findByUsername(loginRequestDto.getUsername())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
-        return AuthResponse.builder()
+        return AuthResponseDto.builder()
                 .token(jwtToken)
                 .build();
     }

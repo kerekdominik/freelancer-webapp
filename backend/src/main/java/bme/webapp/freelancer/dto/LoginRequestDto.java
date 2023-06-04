@@ -1,4 +1,4 @@
-package bme.webapp.freelancer.auth;
+package bme.webapp.freelancer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginRequest {
+public class LoginRequestDto {
     private String username;
     private String password;
 }
