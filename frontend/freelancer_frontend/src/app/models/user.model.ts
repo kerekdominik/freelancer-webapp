@@ -4,7 +4,7 @@ import { Roles } from "./roles";
 
 export interface User {
     id: number;
-    usernames: string;
+    username: string;
     role: string;
     skills: string[];
     experienceLevel: number;

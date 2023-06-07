@@ -1,7 +1,6 @@
 
 export interface Offer {
-    id: number;
-    employeeId: number;
+    employeeUsername: string;
     jobId: number;
     hourlyRate: number;
     estimatedTime: number;

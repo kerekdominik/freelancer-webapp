@@ -64,6 +64,8 @@ public class OfferController {
             return new ResponseEntity<>("Employee not found", HttpStatus.NOT_FOUND);
         }
         User employee = optEmployee.get();
+        employee.getAppliedJobs().add(job);
+        job.getAppliedEmployees().add(employee);
         offer.setEmployee(employee);
 
         offerRepository.save(offer);

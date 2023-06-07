@@ -11,6 +11,7 @@ import { RegistrationComponent } from './components/auth/registration/registrati
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { OfferComponent } from './components/offer/offer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegistrationComponent,
     HomeComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    OfferComponent
   ],
   imports: [
     BrowserModule,
