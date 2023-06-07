@@ -1,5 +1,6 @@
 package bme.webapp.freelancer.controller;
 
+import bme.webapp.freelancer.entity.Role;
 import bme.webapp.freelancer.entity.User;
 import bme.webapp.freelancer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,16 @@ public class ProfileController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
+
+    @GetMapping("/employees")
+    public ResponseEntity<List<User>> getAllEmployees() {
+        List<User> employees = userRepository.findAllByRole(Role.EMPLOYEE);
+        if(employees.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(employees, HttpStatus.OK);
+    }
+
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {

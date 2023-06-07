@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../../services/auth-services/auth.service';
 import { Job } from 'src/app/models/job.model';
 import { JobService } from 'src/app/services/job.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user.model';
+import { Employee, EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +12,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  jobs: Job[] = []; // Assuming Job is the name of your job model
+  jobs: Job[] = [];
+  user: User | undefined;
+  employees: Employee[] = [];
 
-  constructor(private jobService: JobService, private router: Router) { } // Assuming you have a job service to fetch job data
+  constructor(private employeeService: EmployeeService, private userService: UserService, private jobService: JobService, private router: Router) { }
 
   ngOnInit(): void {
       this.jobService.getAllJobs().subscribe(data => {
           this.jobs = data;
       });
+
+      this.userService.getCurrentUser(localStorage.getItem('jwtToken') || '').subscribe(data => {
+        this.user = data;
+      });
+
+      this.employeeService.getEmployees().subscribe(data => {
+        this.employees = data;
+      });
   }
 
   redirectToOfferForm(jobId: number) {
     this.router.navigate(['/offer-form', jobId], {queryParams: { jobId: jobId }});
+  }
+
+  isEmployee(): boolean {
+    return this.user?.role === 'EMPLOYEE';
   }
 }

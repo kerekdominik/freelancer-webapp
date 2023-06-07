@@ -8,13 +8,13 @@
     background-color: #4caf50;
   }
 
-  .jobs-container {
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  .job-card {
+  .card {
     width: 100%;
     max-width: 500px;
     margin-bottom: 10px;
