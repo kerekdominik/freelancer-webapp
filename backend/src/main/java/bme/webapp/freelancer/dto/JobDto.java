@@ -10,5 +10,6 @@ public class JobDto {
     Double price;
     String category;
     String employer;
+    Integer experienceLevel;
 
 }

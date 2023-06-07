@@ -49,6 +49,7 @@ public class JobController {
         job.setTitle(jobDto.getTitle());
         job.setDescription(jobDto.getDescription());
         job.setPrice(jobDto.getPrice());
+        job.setExperienceLevel(jobDto.getExperienceLevel());
 
         String categoryName = jobDto.getCategory();
         Optional<Category> optCategory = categoryRepository.findByName(categoryName);
@@ -83,6 +84,7 @@ public class JobController {
         job.setTitle(jobDto.getTitle());
         job.setDescription(jobDto.getDescription());
         job.setPrice(jobDto.getPrice());
+        job.setExperienceLevel(jobDto.getExperienceLevel());
 
         String categoryName = jobDto.getCategory();
         Optional<Category> optCategory = categoryRepository.findByName(categoryName);

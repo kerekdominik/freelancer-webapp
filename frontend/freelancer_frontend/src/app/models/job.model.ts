@@ -1,3 +1,4 @@
+import { Category } from "./category.model";
 import { Employee } from "./employee";
 
 export interface Job {
@@ -7,6 +8,6 @@ export interface Job {
     description: string;
     skills: string[];
     experienceLevel: number;
-    hourlyRate: number;
+    price: number;
     appliedEmployees: Employee[];
 } 

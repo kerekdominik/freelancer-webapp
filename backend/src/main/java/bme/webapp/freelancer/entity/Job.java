@@ -28,6 +28,8 @@ public class Job {
     private String description;
     @Column
     private Double price;
+    @Column
+    private Integer experienceLevel;
 
     @ManyToOne
     @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="name")
