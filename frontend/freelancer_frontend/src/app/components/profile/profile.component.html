@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+
+<div class="d-flex justify-content-center">
+    <div class="card text-center border-success">
+        <div class="card-body">
+            <h2 class="card-title">User Profile</h2>
+            <div *ngIf="user">
+                <p class="card-text">{{ user.role }}</p>
+                <div *ngIf="isEmployee()">
+                    <p><strong>Képességek</strong> {{ user.skills.join(', ') }}</p>
+                    <p><strong>Tapasztalati szint:</strong> {{ user.experienceLevel }}</p>
+                    <p><strong>Óradíj:</strong> {{ user.hourlyPrice }}</p>
+                </div>
+                <div *ngIf="!isEmployee()">
+                    <p><strong>Bemutatkozás:</strong> {{ user.introduction }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

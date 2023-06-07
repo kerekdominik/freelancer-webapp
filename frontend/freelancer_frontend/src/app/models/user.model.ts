@@ -1,12 +1,15 @@
 import { Job } from "./job.model";
+import { Roles } from "./roles";
 
 
-export interface Employee {
+export interface User {
     id: number;
     usernames: string;
-    password: string;
+    role: string;
     skills: string[];
     experienceLevel: number;
-    hourlyRate: number;
+    hourlyPrice: number;
     appliedJobs: Job[];
+    introduction: string;
+    createdJobs: Job[];
 }
