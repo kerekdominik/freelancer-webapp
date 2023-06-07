@@ -27,7 +27,7 @@ public class Job {
     @Column
     private String description;
     @Column
-    private Integer price;
+    private Double price;
 
     @ManyToOne
     @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="name")

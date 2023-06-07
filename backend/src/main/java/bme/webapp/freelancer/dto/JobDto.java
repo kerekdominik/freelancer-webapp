@@ -7,7 +7,7 @@ public class JobDto {
 
     String title;
     String description;
-    Integer price;
+    Double price;
     String category;
     String employer;
 
