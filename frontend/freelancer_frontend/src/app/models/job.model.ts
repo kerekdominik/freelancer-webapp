@@ -9,5 +9,6 @@ export interface Job {
     skills: string[];
     experienceLevel: number;
     price: number;
+    employer: string;
     appliedEmployees: User[];
 } 

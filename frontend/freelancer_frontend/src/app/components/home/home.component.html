@@ -28,6 +28,7 @@
 </div>
 
 <div *ngIf="!isEmployee()" class="container">
+    <h1>Munkavállalók</h1>
     <div class="card" *ngFor="let employee of employees">
         <h2>{{ employee.username }}</h2>
         <h6>Képességek:</h6>

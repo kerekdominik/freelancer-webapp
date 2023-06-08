@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { OfferComponent } from './components/offer/offer.component';
+import { MyJobsComponent } from './components/myjobs/myjobs.component';
+import { AddJobComponent } from './components/addjob/addjob.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { OfferComponent } from './components/offer/offer.component';
     HomeComponent,
     NavbarComponent,
     ProfileComponent,
-    OfferComponent
+    OfferComponent,
+    MyJobsComponent,
+    AddJobComponent
   ],
   imports: [
     BrowserModule,

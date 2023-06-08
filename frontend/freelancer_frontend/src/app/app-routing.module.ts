@@ -6,6 +6,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { OfferComponent } from './components/offer/offer.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
 import { AuthGuardService } from './services/auth-services/auth.guard';
+import { MyJobsComponent } from './components/myjobs/myjobs.component';
+import { AddJobComponent } from './components/addjob/addjob.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'offer-form/:jobId', component: OfferComponent },
+  { path: 'myjobs', component: MyJobsComponent },
+  { path: 'myjobs/addjob', component: AddJobComponent },
 ];
 
 @NgModule({

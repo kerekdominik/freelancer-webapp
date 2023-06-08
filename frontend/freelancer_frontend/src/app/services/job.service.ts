@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Job } from '../models/job.model';
@@ -13,5 +13,15 @@ export class JobService {
 
   getAllJobs(): Observable<Job[]> {
     return this.http.get<Job[]>(this.apiURL);
+  }
+
+  getMyJobs(token: string): Observable<Job[]> {
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token });
+    return this.http.get<Job[]>(this.apiURL + '/myjobs', { headers: headers });
+  }
+
+  createJob(job: Job, token: string): Observable<any> {
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token });
+    return this.http.post(`${this.apiURL}`, job, { headers: headers });
   }
 }

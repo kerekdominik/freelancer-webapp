@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class NavbarComponent implements OnInit {
   user: User | undefined;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, public router: Router) { }
 
   ngOnInit(): void {
     this.userService.getCurrentUser(localStorage.getItem('jwtToken') || '').subscribe(data => {
@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout() {
-    this.router.navigate(['/login']);
+    this.router.navigateByUrl('/login');
   }
 
   isEmployee(): boolean {

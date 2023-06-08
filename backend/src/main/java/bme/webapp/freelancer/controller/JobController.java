@@ -10,6 +10,8 @@ import bme.webapp.freelancer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,6 +43,27 @@ public class JobController {
                 .map(job -> new ResponseEntity<>(job, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    @GetMapping("/myjobs")
+    public ResponseEntity<List<Job>> getCurrentUserJobs() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            String username = ((UserDetails) principal).getUsername();
+            Optional<User> optUser = userRepository.findByUsername(username);
+
+            if (optUser.isPresent()) {
+                User user = optUser.get();
+                List<Job> userJobs = jobRepository.findByEmployer(user);
+                return new ResponseEntity<>(userJobs, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+    }
+
 
     @PostMapping
     public ResponseEntity<String> createJob(@RequestBody JobDto jobDto) {
