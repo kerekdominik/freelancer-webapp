@@ -8,6 +8,7 @@ import { RegistrationComponent } from './components/auth/registration/registrati
 import { AuthGuardService } from './services/auth-services/auth.guard';
 import { MyJobsComponent } from './components/myjobs/myjobs.component';
 import { AddJobComponent } from './components/addjob/addjob.component';
+import { EmployersComponent } from './components/employers/employers.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'offer-form/:jobId', component: OfferComponent },
   { path: 'myjobs', component: MyJobsComponent },
   { path: 'myjobs/addjob', component: AddJobComponent },
+  { path: 'employers', component: EmployersComponent },
 ];
 
 @NgModule({

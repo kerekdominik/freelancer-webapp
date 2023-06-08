@@ -47,6 +47,15 @@ public class ProfileController {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
+    @GetMapping("/employers")
+    public ResponseEntity<List<User>> getAllEmployers() {
+        List<User> employers = userRepository.findAllByRole(Role.EMPLOYER);
+        if(employers.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(employers, HttpStatus.OK);
+    }
+
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
