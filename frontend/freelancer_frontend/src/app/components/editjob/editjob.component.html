@@ -1,0 +1,43 @@
+<div class="job-container">
+    <div class="content">
+        <h1 class="title text-center">Munka szerkesztése</h1>
+        <form class="job-form" [formGroup]="jobForm" (ngSubmit)="onSubmit()">      
+            <div class="form-group">
+            <label for="title">Cím</label>
+            <input id="title" type="text" formControlName="title" class="form-control">
+            </div>
+
+            <div class="form-group">
+            <label for="description">Leírás</label>
+            <textarea id="description" formControlName="description" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group">
+            <label for="price">Óradíj (Ft)</label>
+            <input id="price" type="number" formControlName="price" class="form-control">
+            </div>
+
+            <div class="form-group">
+            <label for="category">Kategória</label>
+            <select id="category" formControlName="category" class="form-control">
+                <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+            </select>
+            </div>
+
+            <div class="form-group">
+                <label for="experienceLevel">Szükséges tapasztalat</label>
+                <select id="experienceLevel" formControlName="experienceLevel" class="form-control">
+                  <option value="1">Junior</option>
+                  <option value="2">Medior</option>
+                  <option value="3">Senior</option>
+                </select>
+              </div>
+              
+            <div class="button-row">
+                <button type="submit" class="btn btn-light">Mentés</button>
+                <button type="button" routerLink="/myjobs" class="btn btn-outline-light">Vissza</button>
+            </div>
+            
+        </form>
+    </div>
+</div>

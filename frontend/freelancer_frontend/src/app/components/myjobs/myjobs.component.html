@@ -7,10 +7,6 @@
         <h2>{{ job.title }}</h2>
         <h6>{{ job.category }}</h6>
         <p>{{ job.description }}</p>
-        <h6>Képességek: </h6>
-            <ul>
-                <li *ngFor="let skill of job.skills">{{ skill }}</li>
-            </ul>
         <p>Szükséges tapasztalati szint: </p>
             <div class="experience-bar">
                 <div [style.width.%]="(job.experienceLevel / 3) * 100"></div>
@@ -18,8 +14,8 @@
         <h5>{{ job.price }} Ft/óra</h5>
         <button class="btn btn-outline-primary" (click)="redirectToAppliers()">Jelentkezők</button>
         <br>
-        <button class="btn btn-primary" (click)="editJob()">Szerkesztés</button>
+        <button class="btn btn-primary" (click)="editJob(job.id)">Szerkesztés</button>
         <br>
-        <button class="btn btn-danger" (click)="deleteJob()">Törlés</button>
+        <button class="btn btn-danger" (click)="deleteJob(job.id)">Törlés</button>
     </div>
 </div>

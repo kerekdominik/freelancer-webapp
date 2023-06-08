@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToOfferForm(jobId: number) {
-    this.router.navigate(['/offer-form', jobId], {queryParams: { jobId: jobId }});
+    this.router.navigate(['/offer-form', jobId], {queryParams: { jobId: jobId }}).catch(err => console.log(err));
   }
 
   isEmployee(): boolean {
