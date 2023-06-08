@@ -12,8 +12,8 @@ import { Employee, EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  jobs: Job[] = [];
-  user: User | undefined;
+  jobs!: Job[];
+  user!: User;
   employees: Employee[] = [];
 
   constructor(private employeeService: EmployeeService, private userService: UserService, private jobService: JobService, private router: Router) { }
@@ -38,5 +38,9 @@ export class HomeComponent implements OnInit {
 
   isEmployee(): boolean {
     return this.user?.role === 'EMPLOYEE';
+  }
+
+  alreadyApplied(): boolean {
+    return this.user?.appliedJobs?.length !== 0;
   }
 }

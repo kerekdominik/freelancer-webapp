@@ -1,20 +1,30 @@
 <app-navbar></app-navbar>
 <div *ngIf="isEmployee()" class="container">
-        <div class="card" *ngFor="let job of jobs">
-            <h2>{{ job.title }}</h2>
-            <h6>{{ job.category }}</h6>
-            <p>{{ job.description }}</p>
-            <h6>Képességek: </h6>
-                <ul>
-                    <li *ngFor="let skill of job.skills">{{ skill }}</li>
-                </ul>
-            <p>Szükséges tapasztalati szint: </p>
-                <div class="experience-bar">
-                    <div [style.width.%]="(job.experienceLevel / 3) * 100"></div>
-                </div>
-            <h5>{{ job.price }} Ft/óra</h5>
-            <button class="btn btn-primary" (click)="redirectToOfferForm(job.id)">Ajánlat</button>
+    
+    <div *ngIf="alreadyApplied()"  class="center-content">
+        <h1>Állások melyekre már jelentkeztél</h1>
+        <div class="little-card" *ngFor="let job of user.appliedJobs">
+            <p>{{ job.title }}</p>         
         </div>
+        <br>
+    </div>
+
+    <h1>További elérhető állások</h1>
+    <div class="card" *ngFor="let job of jobs">
+        <h2>{{ job.title }}</h2>
+        <h6>{{ job.category }}</h6>
+        <p>{{ job.description }}</p>
+        <h6>Képességek: </h6>
+            <ul>
+                <li *ngFor="let skill of job.skills">{{ skill }}</li>
+            </ul>
+        <p>Szükséges tapasztalati szint: </p>
+            <div class="experience-bar">
+                <div [style.width.%]="(job.experienceLevel / 3) * 100"></div>
+            </div>
+        <h5>{{ job.price }} Ft/óra</h5>
+        <button class="btn btn-primary" (click)="redirectToOfferForm(job.id)">Ajánlat</button>
+    </div>
 </div>
 
 <div *ngIf="!isEmployee()" class="container">
