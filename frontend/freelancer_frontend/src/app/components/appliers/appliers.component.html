@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1>Jelentkezők</h1>
+    <div class="card" *ngFor="let employee of employees">
+        <h2>{{ employee.username }}</h2>
+        <h6>Képességek:</h6>
+        <ul>
+          <li *ngFor="let skill of employee.skills">{{ skill }}</li>
+        </ul>
+        <p>Tapasztalati szint:</p>
+        <div class="experience-bar">
+          <div [style.width.%]="(employee.experienceLevel / 3) * 100"></div>
+        </div>
+        <h5>{{ employee.hourlyPrice }} Ft/óra</h5>
+        <button class="btn btn-primary">Elfogad</button>
+        <br>
+        <button class="btn btn-danger">Töröl</button>
+      </div>
+</div>

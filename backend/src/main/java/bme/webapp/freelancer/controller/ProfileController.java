@@ -1,17 +1,16 @@
 package bme.webapp.freelancer.controller;
 
+import bme.webapp.freelancer.entity.Job;
 import bme.webapp.freelancer.entity.Role;
 import bme.webapp.freelancer.entity.User;
+import bme.webapp.freelancer.repository.JobRepository;
 import bme.webapp.freelancer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +21,9 @@ public class ProfileController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JobRepository jobRepository;
 
     @GetMapping("/profile")
     @CrossOrigin
@@ -54,6 +56,17 @@ public class ProfileController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(employers, HttpStatus.OK);
+    }
+
+    @GetMapping("/employees/{jobId}")
+    public ResponseEntity<List<User>> getEmployeesByJob(@PathVariable Integer jobId) {
+        Optional<Job> optionalJob = jobRepository.findById(jobId);
+        if(optionalJob.isPresent()){
+            Job job = optionalJob.get();
+            return ResponseEntity.ok(job.getAppliedEmployees());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 

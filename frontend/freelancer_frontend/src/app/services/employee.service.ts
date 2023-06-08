@@ -18,5 +18,9 @@ export interface Employee {
     getEmployees(): Observable<Employee[]> {
       return this.http.get<Employee[]>('http://localhost:8080/api/users/employees');
     }
+
+    getEmployeesByJob(jobId: number): Observable<Employee[]> {
+      return this.http.get<Employee[]>('http://localhost:8080/api/users/employees/' + jobId);
+    }
   }
   

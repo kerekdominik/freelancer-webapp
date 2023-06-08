@@ -9,6 +9,7 @@ import { AuthGuardService } from './services/auth-services/auth.guard';
 import { MyJobsComponent } from './components/myjobs/myjobs.component';
 import { AddJobComponent } from './components/addjob/addjob.component';
 import { EditJobComponent } from './components/editjob/editjob.component';
+import { AppliersComponent } from './components/appliers/appliers.component';
 import { EmployersComponent } from './components/employers/employers.component';
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'myjobs/addjob', component: AddJobComponent },
   { path: 'employers', component: EmployersComponent },
   { path: 'myjobs/editjob', component: EditJobComponent },
+  { path: 'myjobs/:jobId/appliers', component: AppliersComponent },
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout() {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login').catch(err => console.log(err));
   }
 
   isEmployee(): boolean {

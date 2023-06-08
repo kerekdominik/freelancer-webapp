@@ -43,7 +43,7 @@ export class MyJobsComponent implements OnInit {
     }
   }
   
-  redirectToAppliers(): void {
-    ;
+  redirectToAppliers(jobId: number): void {
+    this.router.navigate(['/myjobs/' + jobId + '/appliers'], {queryParams: { jobId: jobId }}).catch(err => console.log(err));
   }
 }
