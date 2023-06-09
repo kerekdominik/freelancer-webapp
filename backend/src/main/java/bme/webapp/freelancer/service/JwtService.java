@@ -1,4 +1,4 @@
-package bme.webapp.freelancer.security.config;
+package bme.webapp.freelancer.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

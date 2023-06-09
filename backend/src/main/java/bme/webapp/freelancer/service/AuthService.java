@@ -6,7 +6,6 @@ import bme.webapp.freelancer.dto.RegisterRequestDto;
 import bme.webapp.freelancer.entity.Role;
 import bme.webapp.freelancer.entity.User;
 import bme.webapp.freelancer.repository.UserRepository;
-import bme.webapp.freelancer.security.config.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
